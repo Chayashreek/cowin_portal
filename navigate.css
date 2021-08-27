@@ -1,0 +1,23 @@
+	.navbar-nav{
+	flex-direction:row;
+	
+	}
+	.first-navitem
+	{
+	padding-left:300px;
+	}
+	.navigation{
+	margin-right:0px;
+	padding-right:0px;
+	
+	}
+	.navbar-brand{
+	
+	padding-left:2px;
+	
+	}
+    .navbar-fixed-top
+    {
+    background:white;
+    margin-bottom:100px;
+    }

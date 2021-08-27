@@ -1,0 +1,240 @@
+<html>
+    <head>
+        <title></title>
+        <link rel="stylesheet" >
+        <script src="https://ajax.googleapis.com/ajax/libs//jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/forge/0.8.2/forge.all.min.js"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="plugins/cubeportfolio/css/cubeportfolio.min.css">
+	<link href="css/nivo-lightbox.css" rel="stylesheet" />
+	<link href="css/nivo-lightbox-theme/default/default.css" rel="stylesheet" type="text/css" />
+	<link href="css/owl.carousel.css" rel="stylesheet" media="screen" />
+    <link href="css/owl.theme.css" rel="stylesheet" media="screen" />
+	<link href="css/animate.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet">
+     <link href="navigate.css" rel="stylesheet">
+     <link id="t-colors" href="color/default.css" rel="stylesheet"> 
+        
+     <style type="text/css">
+     
+     
+     html
+     {
+     height:100%
+     }
+     body
+     {
+     	background-color:#dadce0;
+     }
+     .reg{
+	
+    padding-left: 28%;
+    padding-right:40%;
+    margin-top: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.otp-section{
+    padding-left: 5%;
+    padding-right:5%;
+    margin-top: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    display: none;
+}
+
+fieldset{
+    background-color:white;
+    width:600px;
+    text-align: center;
+    padding-top: 35px;
+    padding-bottom: 30px;
+    border:none;
+}
+.btn, .confirm-btn {
+    border: none;
+    color: white;
+    padding: 4px 20px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 2px solid #3fbbc08c;
+}
+  .btn:hover {
+    background-color: #3fbbc08c;
+    color: white;
+  }
+ .confirm-btn:hover {
+    background-color:#3fbbc08c;
+    color: white;
+  }
+  .enter, .confirm-otp{
+      width: 60%;
+  }
+  .confirm-otp{
+      width: 60%;
+  }
+  #footer {
+   position:absolute;
+   bottom:0;
+   width:150%;
+   height:60px;   /* Height of the footer */
+   
+}
+.intro-content{
+    padding-top: 50px;
+}
+     </style>
+    </head>
+    <body id="page-top" data-spy="scroll" data-target=".navbar-custom" >
+
+	<div id="wrapper">
+	
+		<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+            <div class="top-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6">
+                        <p class="bold text-left">Helpline 91-11-23978046 </p>
+                        </div>
+                        <div class="col-sm-6 col-md-6">
+                        <p class="bold text-right">Health Ministry 1075</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container navigation" >
+            
+                <div class="navbar-header page-scroll" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="index.html">
+                        <img src="logo1.jpeg" alt="" width="150" height="40" />
+                    </a>
+                </div>
+    
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="fristpage.html">HOME</a></li>
+                    <li><a href="index1.html">REGISTER/SIGN IN</a></li>
+                    <li><a href="http://127.0.0.1:5000/chat">CHAT</a></li>
+                    
+                  </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container -->
+        </nav>
+	</div>
+    <div class="intro-content">
+       <div class="reg">
+                <fieldset><b style="color:#3fbbc0;font-size:40px;text-align:middle">Register or Sign-In</b><br><br><br><br>
+                <label style="font-size:25px;color:black">Enter you mobile number</label>
+                <br>
+                <br>
+                <input type="number" class="enter" name="num" id="num">
+                <br>
+                <br>
+                <input type="submit" class="btn" name="btn" id="btn" value="Get OTP">
+                <br>
+                
+                <div class="otp-section">
+                <label id="add" style="font-size:25px;color:black">An OTP has been sent to mobile</label>
+                <br>
+                <br>
+                <input type="number" class="confirm-otp" name="pnum" id="pnum">
+                <br>
+                <br>
+                <input type="submit" class="confirm-btn" name="pbtn" id="pbtn" value="PROCEED">
+                </div>
+            </fieldset>
+           
+        </div>
+        </div>
+        <script>
+        //Global variable to store transaction ID
+            var transID;
+            var add=$('#add');
+            var mobile =document.getElementById('num');
+            var phone;
+        //document is ready for jquery function call
+            $(document).ready(function(){
+            	 //var phone=$('.enter').val();
+            //onlick function for btn class
+                $('.btn').on('click',function(){
+                	$("#Message").hide();
+               //fetching value from class enter and assigning to variable phone 	
+                  phone=$('.enter').val();
+              
+              //print phone on console
+                    console.log(phone);
+             //assigning/request to requestdata in JSON format
+                    var requestdata={'mobile':phone};
+             
+             
+             //calling ajax for request or send data from sever
+                    $.ajax({
+            url:"https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP", //url to generate otp
+            type:'POST',						//request type
+            data:JSON.stringify(requestdata),		//request data
+            contentType: 'application/json',		//request contentType
+            success: function(results)				//success response
+            {
+            	
+                $(".otp-section").show();  			//if success show otp section
+                var ph=phone%10000;
+               	add.append("******"+ph);
+                transId=results;					//assigning local to global
+                console.log(results); 				//printing on to console
+            },
+            error:function(){						//error response
+                $(".otp-section").show(); 			//if error show otp-section
+            }
+            });
+            });
+
+            $('.confirm-btn').on('click',function(){
+                var otp=$('.confirm-otp').val();
+                console.log(otp);
+                var md = forge.md.sha256.create();  
+                md.start();  
+                md.update(otp, "utf8");  
+                var hashText = md.digest().toHex();
+
+                $.ajax({
+                    url:"https://cdn-api.co-vin.in/api/v2/auth/public/confirmOTP",
+                    type:'POST',
+                    data:JSON.stringify({'otp':hashText,'txnId':transId.txnId}),
+                    contentType: 'application/json',
+                    
+                    success: function(results)
+                    {
+                    //console.log(phone);
+                    	
+                        window.location.href="validateuser.jsp?mobile="+phone
+                       
+                    },
+                    error:function(){
+                $(".otp-section").show(); 
+                alert("You have entered a invalid otp");
+               
+                }
+                });
+            });
+        });
+         
+            </script>
+        <div style="background:#3fbbc0;padding:20px;margin-left:-120px;margin-right:-112px"">
+            <p style="text-align:center;color:white">Privacy Policy | Terms of Service Copyright &#169 2021 COWIN. All Rights Reserved</p>
+     </div>               
+    </body>
+</html>

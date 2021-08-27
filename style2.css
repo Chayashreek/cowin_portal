@@ -1,0 +1,46 @@
+div{
+    border: 1px solid black;
+    margin-left: 30%;
+    margin-top: 5%;
+    margin-right: 30%;
+    padding-left: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: Arial, Helvetica, sans-serif;
+}
+select{
+    padding: 2px;
+    
+}
+.gender{
+    margin-right: 20px;
+}
+hr{
+    margin-top: 20px;
+}
+.inp,select{
+    width: 50%;
+    padding: 3px;
+    
+}
+input,select{
+	border-radius: 6px;
+    margin-top: 5px;
+    border-color: rgba(0, 0, 0, 0.678);
+}
+.htext{
+    margin-top: 5px;
+}
+.sbtn{
+    margin-left: 30%;
+  border: none;
+  background-color: midnightblue;
+  color: white;
+  border-radius: 5px;
+    padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
